@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!-- This is based on DillingerLee's great template here:
+https://github.com/Team-Code/KA_Offline -->
+<html> 
+ <head>
+    <title>PMaking Animations</title> 
+</head>
+ <body>
+    <p align="center"> 
+    <!--This draws the Canvas on the webpage -->
+      <canvas id="mycanvas"></canvas> 
+    </p>
+ </body>
+ 
+ <!-- Run all the JavaScript stuff -->
+ <!-- Include the processing.js library -->
+ <!-- See https://khanacademy.zendesk.com/hc/en-us/articles/202260404-What-parts-of-ProcessingJS-does-Khan-Academy-support- for differences -->
+ <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script> 
+ 
+ <script>
+    var sketchProc = function(processingInstance) {
+     with (processingInstance) {
+        size(400, 400); 
+        frameRate(30);
+        
+        // ProgramCodeGoesHere
+    
+    noStroke()
+
+    // position of the car
+    var x = 10 ;
+
+    // to make the animation
+    draw = function() {
+        // position of the car
+
+        background(151, 244, 247);
+        // draw the car body
+        fill(255, 0, 115);
+        rect(x, 200, 100, 20);
+        rect(x + 15, 178, 70, 40);
+
+        // draw the wheels
+        fill(77, 66, 66);
+        ellipse(x + 25, 221, 24, 24);
+        ellipse(x + 75, 221, 24, 24);
+
+        x = x + 1
+        // to stop the car when it reaches the edge
+        if(x > 300) {
+            x = 300;
+        }
+
+    };
+
+
+    }};
+
+    // Get the canvas that Processing-js will use
+    var canvas = document.getElementById("mycanvas"); 
+    // Pass the function sketchProc (defined in myCode.js) to Processing's constructor.
+    var processingInstance = new Processing(canvas, sketchProc); 
+ </script>
+
+</html>
